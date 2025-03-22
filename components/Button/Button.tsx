@@ -1,5 +1,5 @@
 
-import Colors from "@/constants/Colors";
+import Colors, { getColor } from "@/constants/Colors";
 import { TextStyles } from "@/constants/textStyles";
 
 import React from "react";
@@ -20,7 +20,7 @@ function Button({ label, onPress, icon, theme, border,width , textColor, borderC
     <TouchableOpacity
       style={[
         {
-          backgroundColor: theme == "transparent" ? "transparent" :theme == "primary"?Colors.primary: "white",
+          backgroundColor: theme == "transparent" ? "transparent" :getColor("primary"),
           borderWidth: border?border:0,
           justifyContent: "center",
           borderRadius: 15,

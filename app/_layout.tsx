@@ -26,6 +26,7 @@ import {
   Nunito_800ExtraBold_Italic,
   Nunito_900Black_Italic,
 } from '@expo-google-fonts/nunito';
+import { CustomThemeProvider } from '@/hooks/ThemeContext';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -65,12 +66,18 @@ export default function RootLayout() {
   }
 
   return (
+<CustomThemeProvider>
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
+        
+        {/* <Stack.Screen name="home" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="(home)" options={{ headerShown: false }} />
       </Stack>
       <StatusBar style="auto" />
+    
     </ThemeProvider>
+    </CustomThemeProvider>
+    
   );
 }
